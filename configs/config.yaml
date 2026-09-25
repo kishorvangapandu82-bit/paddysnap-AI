@@ -1,0 +1,38 @@
+# ============================================================
+# PADDYSNAP AI -- MASTER PROJECT CONFIGURATION
+# ============================================================
+
+project_name: "PaddySnap AI"
+version: "1.0.0"
+author: "PaddySnap AI Research Team"
+
+# Dataset Settings
+dataset:
+  train_split: "dataset/train_split.csv"
+  val_split: "dataset/val_split.csv"
+  test_split: "dataset/test_split.csv"
+  class_mapping: "dataset/class_mapping.json"
+  num_classes: 10
+  image_size: 224
+
+# Model Registry
+models:
+  primary_production_model: "efficientnet_v2_s"
+  lightweight_model: "densenet121"
+  custom_scratch_model: "custom_cnn"
+  all_models:
+    - "efficientnet_v2_s"
+    - "convnext_tiny"
+    - "resnet50"
+    - "densenet121"
+    - "custom_cnn"
+
+# Checkpoints Directory
+checkpoints_dir: "checkpoints"
+
+# Results & Metrics Directory
+results:
+  metrics_dir: "results/metrics"
+  graphs_dir: "results/graphs"
+  confusion_matrices_dir: "results/confusion_matrices"
+  training_history_dir: "results/training_history"

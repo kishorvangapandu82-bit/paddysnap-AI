@@ -1,0 +1,68 @@
+{
+  "model_name": "efficientnet_v2_s",
+  "test_accuracy": 97.3752,
+  "macro_f1": 97.3482,
+  "weighted_f1": 97.3711,
+  "per_class": {
+    "bacterial_leaf_blight": {
+      "precision": 92.1053,
+      "recall": 97.2222,
+      "f1_score": 94.5946,
+      "support": 72
+    },
+    "bacterial_leaf_streak": {
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "support": 57
+    },
+    "bacterial_panicle_blight": {
+      "precision": 98.0392,
+      "recall": 100.0,
+      "f1_score": 99.0099,
+      "support": 50
+    },
+    "blast": {
+      "precision": 95.8647,
+      "recall": 97.7011,
+      "f1_score": 96.7742,
+      "support": 261
+    },
+    "brown_spot": {
+      "precision": 96.5517,
+      "recall": 96.5517,
+      "f1_score": 96.5517,
+      "support": 145
+    },
+    "dead_heart": {
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "support": 217
+    },
+    "downy_mildew": {
+      "precision": 100.0,
+      "recall": 91.3978,
+      "f1_score": 95.5056,
+      "support": 93
+    },
+    "hispa": {
+      "precision": 99.1111,
+      "recall": 93.3054,
+      "f1_score": 96.1207,
+      "support": 239
+    },
+    "normal": {
+      "precision": 98.1273,
+      "recall": 98.8679,
+      "f1_score": 98.4962,
+      "support": 265
+    },
+    "tungro": {
+      "precision": 93.6416,
+      "recall": 99.3865,
+      "f1_score": 96.4286,
+      "support": 163
+    }
+  }
+}

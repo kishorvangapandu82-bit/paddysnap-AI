@@ -1,0 +1,65 @@
+# ============================================================
+# PADDY GUARD AI — .gitignore
+# ============================================================
+
+# --- Dataset (too large for git) ---
+dataset/
+*.csv.bak
+
+# --- Model Weights & Checkpoints (too large for git) ---
+checkpoints/
+*.pth
+*.pt
+*.onnx
+*.tflite
+*.pkl
+
+# --- Python Environment ---
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# --- Jupyter Notebooks (optional, add if needed) ---
+.ipynb_checkpoints/
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Secrets & Environment Variables ---
+.env
+*.secret
+secrets.yaml
+secrets.json
+
+# --- Temporary Files ---
+*.tmp
+*.log
+temp/
+tmp/
+
+# --- Results (optional: comment out if you want to track results in git) ---
+# results/
+# Keeping results tracked in git so experiments are reproducible.
+# Only exclude very large files if needed:
+results/confusion_matrices/*.png
+results/graphs/*.png
+
+# --- Streamlit Cache ---
+.streamlit/

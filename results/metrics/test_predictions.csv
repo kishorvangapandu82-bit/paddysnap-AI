@@ -1,0 +1,21 @@
+ID,Image Filename,Raw Image (Without Predictions),Annotated Image (With Predictions),PyTorch Baseline Class,PyTorch Conf (%),ONNX FP32 Class,ONNX FP32 Conf (%),ONNX INT8 Class,ONNX INT8 Conf (%),Delta Conf (INT8-FP32) (%),Model Parity Agreement,Pathogen / Vector Type,Priority Status
+1,202620.jpg,raw_202620.jpg,pred_202620.jpg,Hispa,80.37,Hispa,79.62,Hispa,78.49,-1.12,MATCH,Coleopteran Pest (Dicladispa armigera),Moderate
+2,200457.jpg,raw_200457.jpg,pred_200457.jpg,Hispa,80.87,Hispa,81.03,Hispa,81.86,+0.82,MATCH,Coleopteran Pest (Dicladispa armigera),Moderate
+3,200103.jpg,raw_200103.jpg,pred_200103.jpg,Hispa,80.66,Hispa,79.78,Hispa,78.23,-1.55,MATCH,Coleopteran Pest (Dicladispa armigera),Moderate
+4,203038.jpg,raw_203038.jpg,pred_203038.jpg,Dead Heart,84.89,Dead Heart,84.78,Dead Heart,83.15,-1.62,MATCH,Lepidopteran Stem Borer (Scirpophaga incertulas),High
+5,201127.jpg,raw_201127.jpg,pred_201127.jpg,Normal,79.20,Normal,79.27,Normal,78.98,-0.29,MATCH,None (Healthy Canopy),Healthy
+6,201004.jpg,raw_201004.jpg,pred_201004.jpg,Normal,78.94,Normal,79.97,Normal,80.25,+0.28,MATCH,None (Healthy Canopy),Healthy
+7,200915.jpg,raw_200915.jpg,pred_200915.jpg,Normal,79.55,Normal,79.71,Normal,79.96,+0.25,MATCH,None (Healthy Canopy),Healthy
+8,200572.jpg,raw_200572.jpg,pred_200572.jpg,Normal,82.47,Normal,82.62,Normal,81.69,-0.93,MATCH,None (Healthy Canopy),Healthy
+9,203017.jpg,raw_203017.jpg,pred_203017.jpg,Dead Heart,83.61,Dead Heart,83.80,Dead Heart,81.85,-1.95,MATCH,Lepidopteran Stem Borer (Scirpophaga incertulas),High
+10,200420.jpg,raw_200420.jpg,pred_200420.jpg,Tungro,91.66,Tungro,91.65,Tungro,90.22,-1.42,MATCH,RTBV / RTSV Virus (Green Leafhopper),Critical
+11,202772.jpg,raw_202772.jpg,pred_202772.jpg,Blast,81.59,Blast,81.60,Blast,79.70,-1.90,MATCH,Fungal Pathogen (Magnaporthe oryzae),High
+12,203034.jpg,raw_203034.jpg,pred_203034.jpg,Hispa,82.29,Hispa,83.25,Hispa,82.45,-0.80,MATCH,Coleopteran Pest (Dicladispa armigera),Moderate
+13,202234.jpg,raw_202234.jpg,pred_202234.jpg,Tungro,90.38,Tungro,90.25,Tungro,88.52,-1.73,MATCH,RTBV / RTSV Virus (Green Leafhopper),Critical
+14,200357.jpg,raw_200357.jpg,pred_200357.jpg,Bacterial Leaf Streak,96.55,Bacterial Leaf Streak,96.40,Bacterial Leaf Streak,96.38,-0.02,MATCH,Bacterium (Xanthomonas oryzae pv. oryzicola),High
+15,202419.jpg,raw_202419.jpg,pred_202419.jpg,Hispa,80.12,Hispa,81.00,Hispa,79.04,-1.97,MATCH,Coleopteran Pest (Dicladispa armigera),Moderate
+16,201729.jpg,raw_201729.jpg,pred_201729.jpg,Tungro,87.52,Tungro,87.81,Tungro,87.59,-0.23,MATCH,RTBV / RTSV Virus (Green Leafhopper),Critical
+17,200131.jpg,raw_200131.jpg,pred_200131.jpg,Brown Spot,88.77,Brown Spot,86.87,Brown Spot,80.65,-6.22,MATCH,Fungal Pathogen (Bipolaris oryzae),Moderate
+18,200123.jpg,raw_200123.jpg,pred_200123.jpg,Dead Heart,85.63,Dead Heart,85.00,Dead Heart,81.33,-3.67,MATCH,Lepidopteran Stem Borer (Scirpophaga incertulas),High
+19,200384.jpg,raw_200384.jpg,pred_200384.jpg,Bacterial Leaf Blight,95.11,Bacterial Leaf Blight,95.48,Bacterial Leaf Blight,94.48,-0.99,MATCH,Bacterium (Xanthomonas oryzae pv. oryzae),Critical
+20,200896.jpg,raw_200896.jpg,pred_200896.jpg,Normal,80.18,Normal,80.02,Normal,79.04,-0.98,MATCH,None (Healthy Canopy),Healthy

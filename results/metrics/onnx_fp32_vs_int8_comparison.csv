@@ -1,0 +1,21 @@
+ID,Image Filename,PyTorch Class,PyTorch Conf (%),ONNX FP32 Class,ONNX FP32 Conf (%),ONNX INT8 Class,ONNX INT8 Conf (%),Delta Conf (%),Class Agreement,FP32 Latency (ms),INT8 Latency (ms)
+1,202620.jpg,Hispa,80.37,Hispa,79.62,Hispa,78.49,-1.12,MATCH,83.5,127.0
+2,200457.jpg,Hispa,80.87,Hispa,81.03,Hispa,81.86,0.82,MATCH,59.6,108.0
+3,200103.jpg,Hispa,80.66,Hispa,79.78,Hispa,78.23,-1.55,MATCH,126.7,113.5
+4,203038.jpg,Dead Heart,84.89,Dead Heart,84.78,Dead Heart,83.15,-1.62,MATCH,42.1,124.9
+5,201127.jpg,Normal,79.2,Normal,79.27,Normal,78.98,-0.29,MATCH,71.4,102.0
+6,201004.jpg,Normal,78.94,Normal,79.97,Normal,80.25,0.28,MATCH,45.2,76.5
+7,200915.jpg,Normal,79.55,Normal,79.71,Normal,79.96,0.25,MATCH,56.4,88.4
+8,200572.jpg,Normal,82.47,Normal,82.62,Normal,81.69,-0.93,MATCH,41.6,100.8
+9,203017.jpg,Dead Heart,83.61,Dead Heart,83.8,Dead Heart,81.85,-1.95,MATCH,121.5,141.4
+10,200420.jpg,Tungro,91.66,Tungro,91.65,Tungro,90.22,-1.42,MATCH,62.8,126.5
+11,202772.jpg,Blast,81.59,Blast,81.6,Blast,79.7,-1.9,MATCH,23.3,168.6
+12,203034.jpg,Hispa,82.29,Hispa,83.25,Hispa,82.45,-0.8,MATCH,46.7,115.3
+13,202234.jpg,Tungro,90.38,Tungro,90.25,Tungro,88.52,-1.73,MATCH,118.0,146.2
+14,200357.jpg,Bacterial Leaf Streak,96.55,Bacterial Leaf Streak,96.4,Bacterial Leaf Streak,96.38,-0.02,MATCH,18.1,117.7
+15,202419.jpg,Hispa,80.12,Hispa,81.0,Hispa,79.04,-1.97,MATCH,71.8,183.2
+16,201729.jpg,Tungro,87.52,Tungro,87.81,Tungro,87.59,-0.23,MATCH,71.6,136.7
+17,200131.jpg,Brown Spot,88.77,Brown Spot,86.87,Brown Spot,80.65,-6.22,MATCH,68.4,144.8
+18,200123.jpg,Dead Heart,85.63,Dead Heart,85.0,Dead Heart,81.33,-3.67,MATCH,58.9,169.0
+19,200384.jpg,Bacterial Leaf Blight,95.11,Bacterial Leaf Blight,95.48,Bacterial Leaf Blight,94.48,-0.99,MATCH,85.7,155.5
+20,200896.jpg,Normal,80.18,Normal,80.02,Normal,79.04,-0.98,MATCH,45.6,127.1

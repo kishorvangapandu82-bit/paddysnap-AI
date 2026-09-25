@@ -1,0 +1,33 @@
+# ============================================================
+# PADDY GUARD AI — Python Dependencies
+# ============================================================
+# Install with:
+#   pip install -r requirements.txt
+# ============================================================
+
+# --- Core Deep Learning ---
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0          # Required by some torch installs; safe to include
+
+# --- Data Science ---
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# --- Image Processing ---
+Pillow>=10.0.0
+
+# --- Visualization ---
+matplotlib>=3.7.0
+seaborn>=0.12.0             # Enhanced confusion matrix heatmaps
+
+# --- Progress Bars ---
+tqdm>=4.65.0
+
+# --- Dashboard ---
+streamlit>=1.28.0
+plotly>=5.17.0              # Interactive charts inside Streamlit
+
+# --- Utilities ---
+PyYAML>=6.0                 # Config file support (configs/ folder)
