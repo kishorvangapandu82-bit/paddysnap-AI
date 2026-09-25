@@ -1,0 +1,15 @@
+# ============================================================
+# PaddySnap AI — Raspberry Pi Requirements
+# ============================================================
+# Install with: pip install -r requirements_pi.txt
+
+# Core inference
+onnxruntime>=1.16.0          # CPU-only ONNX runtime for ARM
+Pillow>=9.0.0                # Image loading and preprocessing
+numpy>=1.24.0                # Numerical operations
+
+# Camera support (optional — needed for live camera mode)
+opencv-python-headless>=4.8.0   # Headless OpenCV for Pi (no GUI deps)
+
+# Utilities
+tqdm>=4.65.0                 # Progress bars for batch processing
