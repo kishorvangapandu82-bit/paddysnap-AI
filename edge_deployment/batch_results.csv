@@ -1,0 +1,21 @@
+id,filename,diagnosis,conf_pct,latency_ms
+1,200103.jpg,Rice Hispa Infestation,99.97,68.2
+2,200123.jpg,Dead Heart / White Ear (Stem Borer Infestation),99.98,64.9
+3,200131.jpg,Bacterial Leaf Streak (BLS),95.09,63.3
+4,200357.jpg,Bacterial Leaf Streak (BLS),99.99,67.4
+5,200384.jpg,Bacterial Leaf Blight (BLB),99.63,65.1
+6,200420.jpg,Rice Tungro Disease (RTD),99.8,63.9
+7,200457.jpg,Rice Hispa Infestation,99.97,62.7
+8,200572.jpg,Healthy Paddy Leaf (No Disease Detected),99.98,61.5
+9,200896.jpg,Healthy Paddy Leaf (No Disease Detected),99.97,64.8
+10,200915.jpg,Healthy Paddy Leaf (No Disease Detected),99.99,60.9
+11,201004.jpg,Healthy Paddy Leaf (No Disease Detected),99.42,63.0
+12,201127.jpg,Healthy Paddy Leaf (No Disease Detected),99.96,63.8
+13,201729.jpg,Rice Tungro Disease (RTD),99.56,61.9
+14,202234.jpg,Rice Tungro Disease (RTD),98.78,63.4
+15,202419.jpg,Rice Hispa Infestation,100.0,62.3
+16,202620.jpg,Rice Hispa Infestation,99.99,62.7
+17,202772.jpg,Rice Blast (Leaf / Neck / Node Blast),100.0,62.2
+18,203017.jpg,Dead Heart / White Ear (Stem Borer Infestation),99.99,63.3
+19,203034.jpg,Rice Hispa Infestation,99.98,62.1
+20,203038.jpg,Dead Heart / White Ear (Stem Borer Infestation),99.97,63.5
