@@ -14,6 +14,10 @@ checkpoints/
 *.tflite
 *.pkl
 
+# Explicitly track edge deployment INT8 models & deployment INT8 models (< 30 MB)
+!edge_deployment/model/*.onnx
+!deployment/onnx/*_int8.onnx
+
 # --- Python Environment ---
 venv/
 .venv/
@@ -54,12 +58,9 @@ secrets.json
 temp/
 tmp/
 
-# --- Results (optional: comment out if you want to track results in git) ---
-# results/
-# Keeping results tracked in git so experiments are reproducible.
-# Only exclude very large files if needed:
-results/confusion_matrices/*.png
-results/graphs/*.png
+# --- Results ---
+# Track all evaluation graphs, confusion matrices, and training curves
+
 
 # --- Streamlit Cache ---
 .streamlit/
