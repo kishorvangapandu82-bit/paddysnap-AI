@@ -63,3 +63,6 @@ results/graphs/*.png
 
 # --- Streamlit Cache ---
 .streamlit/
+
+# --- Edge Deployment local generated runs ---
+edge_deployment/*.csv
