@@ -124,7 +124,7 @@ def main():
 
     print("\n" + "=" * 70)
     print("  🌾 PADDYSNAP AI — TERMINAL VISUAL DIAGNOSIS")
-    print(f"  Champion Model: EfficientNetV2-S (97.38% Test Accuracy)")
+    print(f"  Champion Model: EfficientNetV2-S (97.76% Test Accuracy)")
     print(f"  Evaluating {len(sampled)} Random Images from: {test_dir}")
     print("=" * 70)
 

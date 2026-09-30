@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.14-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.11%2Bcu128-ee4c2c.svg)](https://pytorch.org/)
 [![CUDA](https://img.shields.io/badge/CUDA-12.8%20%7C%20RTX%205050%20GPU-76b900.svg)](https://developer.nvidia.com/cuda-zone)
-[![Accuracy](https://img.shields.io/badge/Test%20Accuracy-97.38%25-brightgreen.svg)]()
+[![Accuracy](https://img.shields.io/badge/Test%20Accuracy-97.76%25-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/License-Academic%20Research-purple.svg)]()
 
 ---
@@ -29,27 +29,27 @@ All models were evaluated on the **exact same stratified test set (1,562 images)
 
 | Rank | Model Architecture | Architectural Category | Parameters | Test Accuracy | Macro Precision | Macro Recall | Macro F1-Score | Weighted F1-Score |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| 🥇 **1** | **EfficientNetV2-S** | Compound Scaled (ImageNet-1K) | 20.19 M | **97.38%** | **97.34%** | **97.44%** | **97.35%** | **97.37%** |
-| 🥈 **2** | **ConvNeXt-Tiny** | Modernized CNN (ImageNet-1K) | 27.83 M | **97.06%** | **96.72%** | **96.73%** | **96.68%** | **97.04%** |
-| 🥉 **3** | **ResNet-50** | Residual Network (ImageNet-1K) | 23.53 M | **96.99%** | **96.66%** | **96.99%** | **96.81%** | **96.99%** |
-| **4** | **DenseNet-121** | Dense Feature Reuse (ImageNet-1K) | **6.96 M** | **96.93%** | **96.29%** | **97.38%** | **96.80%** | **96.93%** |
-| **5** | **Custom PaddySnapNet** | Residual + SE-Attention (From Scratch) | 7.85 M | **93.09%** | **91.79%** | **93.85%** | **92.74%** | **93.11%** |
+| 🥇 **1** | **EfficientNetV2-S** | Compound Scaled (ImageNet-1K) | 20.19 M | **97.76%** | **97.49%** | **97.81%** | **97.64%** | **97.76%** |
+| 🥈 **2** | **ConvNeXt-Tiny** | Modernized CNN (ImageNet-1K) | 27.83 M | **97.63%** | **97.59%** | **97.27%** | **97.41%** | **97.62%** |
+| 🥉 **3** | **ResNet-50** | Residual Network (ImageNet-1K) | 23.53 M | **96.86%** | **96.50%** | **96.49%** | **96.46%** | **96.86%** |
+| **4** | **DenseNet-121** | Dense Feature Reuse (ImageNet-1K) | **6.96 M** | **96.86%** | **96.44%** | **96.97%** | **96.68%** | **96.86%** |
+| **5** | **Custom PaddySnapNet** | Residual + SE-Attention (From Scratch) | 7.85 M | **90.85%** | **89.23%** | **91.77%** | **90.38%** | **90.89%** |
 
 ---
 
 ## 🔬 Key Scientific & Empirical Findings
 
-1. **Top Accuracy Champion (EfficientNetV2-S @ 97.38%):**
+1. **Top Accuracy Champion (EfficientNetV2-S @ 97.76%):**
    - Utilizes Fused-MBConv layers and compound depth/width scaling.
    - Reached top-1 accuracy on the test set while maintaining fast inference on GPU.
-2. **Lightweight Efficiency Champion (DenseNet-121 @ 96.93%):**
-   - Achieved 96.93% accuracy with only **6.9641 Million parameters** (~70% fewer weights than ResNet-50).
+2. **Lightweight Efficiency Champion (DenseNet-121 @ 96.86%):**
+   - Achieved 96.86% accuracy with only **6.9641 Million parameters** (~70% fewer weights than ResNet-50).
    - Dense feature concatenation effectively preserves multi-scale lesion spot features.
-3. **From-Scratch Original CNN (PaddySnapNet @ 93.09%):**
+3. **From-Scratch Original CNN (PaddySnapNet @ 90.85%):**
    - Designed with 4 residual stages and Squeeze-and-Excitation (SE) channel attention.
-   - Proves that a lightweight custom network trained without ImageNet weights can reach >93% accuracy on fine-grained leaf pathology.
-4. **Transfer Learning Uplift (+4.29% Gain):**
-   - Pretrained ImageNet representations provided a quantifiable **+4.29% accuracy boost** (97.38% vs 93.09%) over scratch training.
+   - Proves that a lightweight custom network trained without ImageNet weights can reach >90% accuracy on fine-grained leaf pathology.
+4. **Transfer Learning Uplift (+6.91% Gain):**
+   - Pretrained ImageNet representations provided a quantifiable **+6.91% accuracy boost** (97.76% vs 90.85%) over scratch training.
 5. **Class Imbalance Resolution via Weighted Loss:**
    - The minority class (`bacterial_panicle_blight`, only 337 total images) achieved **100.00% Recall** on the test set due to class-weighted Cross-Entropy loss.
 

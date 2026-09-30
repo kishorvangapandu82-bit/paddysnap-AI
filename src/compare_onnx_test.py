@@ -80,8 +80,8 @@ for idx, row in ref_df.iterrows():
     records.append({
         "ID": int(row["ID"]),
         "Image Filename": img_name,
-        "PyTorch Class": str(row["Predicted Class"]),
-        "PyTorch Conf (%)": float(row["Confidence (%)"]),
+        "PyTorch Class": str(row["PyTorch Baseline Class"]),
+        "PyTorch Conf (%)": float(row["PyTorch Conf (%)"]),  
         "ONNX FP32 Class": class_fp32,
         "ONNX FP32 Conf (%)": round(conf_fp32, 2),
         "ONNX INT8 Class": class_int8,

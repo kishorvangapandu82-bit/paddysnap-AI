@@ -51,15 +51,14 @@ with st.sidebar:
             "🔍 Leaf Disease Diagnosis",
             "📊 Model Comparison Leaderboard",
             "📈 Training Curves & Confusion Matrices",
-            "📖 Disease Encyclopedia",
-            "🧪 Test Predictions (Raw vs Diagnosed)"
+            "📖 Disease Encyclopedia"
         ]
     )
 
     st.divider()
     gpu_active = torch.cuda.is_available()
     st.write(f"**Hardware:** {'🟢 NVIDIA RTX 5050 GPU' if gpu_active else '🟡 CPU'}")
-    st.write("**Top Model:** EfficientNetV2-S (97.38% Test Acc)")
+    st.write("**Top Model:** EfficientNetV2-S (97.76% Test Acc)")
     st.write("**Test Set:** 1,562 Images")
 
 
@@ -104,11 +103,11 @@ if page == "🔍 Leaf Disease Diagnosis":
 
         st.subheader("2. Select Model")
         model_options = {
-            "EfficientNetV2-S (Rank #1 — 97.38% Test Acc)": "efficientnet_v2_s",
-            "ConvNeXt-Tiny (Rank #2 — 97.06% Test Acc)": "convnext_tiny",
-            "ResNet-50 (Rank #3 — 96.99% Test Acc)": "resnet50",
-            "DenseNet-121 (Rank #4 — 96.93% Test Acc)": "densenet121",
-            "Custom PaddySnapNet (From Scratch — 93.09% Test Acc)": "custom_cnn"
+            "EfficientNetV2-S (Rank #1 — 97.76% Test Acc)": "efficientnet_v2_s",
+            "ConvNeXt-Tiny (Rank #2 — 97.63% Test Acc)": "convnext_tiny",
+            "ResNet-50 (Rank #3 — 96.86% Test Acc)": "resnet50",
+            "DenseNet-121 (Rank #4 — 96.86% Test Acc)": "densenet121",
+            "Custom PaddySnapNet (From Scratch — 90.85% Test Acc)": "custom_cnn"
         }
         chosen_model_label = st.selectbox("Architecture:", list(model_options.keys()))
         chosen_model_code = model_options[chosen_model_label]
@@ -219,10 +218,10 @@ elif page == "📊 Model Comparison Leaderboard":
             st.image(str(table_png), caption="Summary Performance Table", use_container_width=True)
 
     st.subheader("Key Scientific Findings:")
-    st.write("1. **Champion Model:** **EfficientNetV2-S** achieved the highest score with **97.38% Test Accuracy** and **97.35% Macro F1**.")
-    st.write("2. **Efficiency Leader:** **DenseNet-121** achieved **96.93% Accuracy** with only **6.9641M parameters** (70% smaller than ResNet-50).")
-    st.write("3. **Custom CNN (From Scratch):** Our custom **PaddySnapNet** reached **93.09% Test Accuracy** without any pretrained ImageNet weights.")
-    st.write("4. **Transfer Learning Value:** Pretrained representations gave a **+4.29% accuracy boost** compared to training from scratch.")
+    st.write("1. **Champion Model:** **EfficientNetV2-S** achieved the highest score with **97.76% Test Accuracy** and **97.75% Macro F1**.")
+    st.write("2. **Efficiency Leader:** **DenseNet-121** achieved **96.86% Accuracy** with only **6.9641M parameters** (70% smaller than ResNet-50).")
+    st.write("3. **Custom CNN (From Scratch):** Our custom **PaddySnapNet** reached **90.85% Test Accuracy** without any pretrained ImageNet weights.")
+    st.write("4. **Transfer Learning Value:** Pretrained representations gave a **+6.91% accuracy boost** compared to training from scratch.")
 
 
 # ==============================================================
@@ -236,11 +235,11 @@ elif page == "📈 Training Curves & Confusion Matrices":
     model_sel = st.selectbox(
         "Choose Architecture:",
         [
-            ("efficientnet_v2_s", "EfficientNetV2-S (Rank #1 — 97.38%)"),
-            ("convnext_tiny", "ConvNeXt-Tiny (Rank #2 — 97.06%)"),
-            ("resnet50", "ResNet-50 (Rank #3 — 96.99%)"),
-            ("densenet121", "DenseNet-121 (Rank #4 — 96.93%)"),
-            ("custom_cnn", "Custom PaddySnapNet (Rank #5 — 93.09%)")
+            ("efficientnet_v2_s", "EfficientNetV2-S (Rank #1 — 97.76%)"),
+            ("convnext_tiny", "ConvNeXt-Tiny (Rank #2 — 97.63%)"),
+            ("resnet50", "ResNet-50 (Rank #3 — 96.86%)"),
+            ("densenet121", "DenseNet-121 (Rank #4 — 96.86%)"),
+            ("custom_cnn", "Custom PaddySnapNet (Rank #5 — 90.85%)")
         ],
         format_func=lambda x: x[1]
     )[0]
@@ -315,150 +314,5 @@ elif page == "📖 Disease Encyclopedia":
         st.warning(f"**🧪 Phosphorus & Micronutrients:**\n\n{fg['phosphorus_action']}\n\n{fg['micronutrients']}")
 
 
-# ==============================================================
-# SECTION 5: TEST PREDICTIONS (RAW VS DIAGNOSED)
-# ==============================================================
-if page == "🧪 Test Predictions (Raw vs Diagnosed)":
-    st.title("🧪 Batch Test Predictions — Raw Images vs AI Diagnoses")
-    st.write(
-        "Evaluate unlabelled field test images from `dataset/test_images/` "
-        "before and after clinical diagnosis by **EfficientNetV2-S** (97.38% Test Accuracy)."
-    )
 
-    pred_dir = PROJECT_ROOT / "results" / "test_predictions"
-    raw_grid_path = pred_dir / "raw_20_images_grid.png"
-    pred_grid_path = pred_dir / "all_20_predictions_grid.png"
-    master_grid_path = pred_dir / "all_20_raw_vs_predicted_grid.png"
-    csv_path = PROJECT_ROOT / "results" / "metrics" / "test_predictions.csv"
-
-    # KPI row
-    kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-    kpi1.metric("Evaluated Images", "20 Samples")
-    kpi2.metric("Mean AI Confidence", "84.34%")
-    kpi3.metric("Normal / Healthy", "5 / 20 (25%)")
-    kpi4.metric("Pathological / Pest", "15 / 20 (75%)")
-
-    st.divider()
-
-    view_mode = st.radio(
-        "Select Inspection View:",
-        [
-            "🌾 EfficientNetV2-S Multi-Model Grid (1 PNG)",
-            "🖼️ All 20 in One Master PNG (Raw vs Diagnosed)",
-            "⚡ ONNX FP32 vs INT8 Quantization Comparison (20 Images)",
-            "⚖️ Side-by-Side 4x5 Collages (Raw vs Diagnosed)",
-            "🌿 Raw Images Only (Without Predictions)",
-            "🏷️ Diagnosed Images Only (With Overlays)",
-            "🔍 Single-Sample Comparative Inspector"
-        ],
-        horizontal=True
-    )
-
-    eff_grid_path = pred_dir / "efficientnet_v2_s_20_predictions_comparison.png"
-
-    if view_mode == "🌾 EfficientNetV2-S Multi-Model Grid (1 PNG)":
-        st.subheader("🌾 EfficientNetV2-S Multi-Model Comparison Grid (1 PNG)")
-        st.caption("Complete 20-leaf diagnostic breakdown comparing PyTorch Baseline vs ONNX FP32 vs ONNX INT8 with leaf photos and confidence meters.")
-        if eff_grid_path.exists():
-            st.image(str(eff_grid_path), caption="EfficientNetV2-S: Multi-Model Parity Verification (2400x2150)", use_container_width=True)
-        else:
-            st.warning("EfficientNet comparison grid not found.")
-
-    elif view_mode == "🖼️ All 20 in One Master PNG (Raw vs Diagnosed)":
-        st.subheader("🖼️ Master 20-Sample Diagnostic Grid (All in One PNG)")
-        st.caption("Side-by-side unlabelled field images vs AI diagnostic overlays for all 20 test leaves.")
-        if master_grid_path.exists():
-            st.image(str(master_grid_path), caption="PaddySnap AI: 20-Sample Master Comparison Grid (3690x2130)", use_container_width=True)
-        else:
-            st.warning("Master comparison grid not found.")
-
-    elif view_mode == "⚡ ONNX FP32 vs INT8 Quantization Comparison (20 Images)":
-        st.subheader("⚡ ONNX FP32 vs INT8 Dynamic Quantization Benchmark (20 Test Images)")
-        st.caption("Side-by-side diagnostic consistency and latency comparison on held-out field test leaves.")
-
-        onnx_csv = PROJECT_ROOT / "results" / "metrics" / "onnx_fp32_vs_int8_comparison.csv"
-        if onnx_csv.exists():
-            df_onnx = pd.read_csv(onnx_csv)
-            o1, o2, o3, o4 = st.columns(4)
-            o1.metric("Class Agreement", "100.0%", "20 / 20 Identical")
-            o2.metric("Size Reduction", "73.9%", "76.87 MB → 20.07 MB")
-            o3.metric("Mean Conf. Drift", "1.44%", "Quantization Noise")
-            o4.metric("Engine Tested", "EfficientNetV2-S", "Edge CPU")
-
-            st.dataframe(df_onnx, use_container_width=True, hide_index=True)
-
-            # Visual Infographic
-            infographic_path = PROJECT_ROOT / "results" / "graphs" / "onnx_fp32_vs_int8_visual_comparison.png"
-            if infographic_path.exists():
-                st.divider()
-                st.subheader("🖼️ Visual Parity & Quantization Benchmark Infographic")
-                st.image(str(infographic_path), caption="PaddySnap AI: ONNX FP32 vs INT8 20-Sample Visual Comparison", use_container_width=True)
-        else:
-            st.warning("ONNX comparison CSV not found.")
-
-    elif view_mode == "⚖️ Side-by-Side 4x5 Collages (Raw vs Diagnosed)":
-        c_left, c_right = st.columns(2, gap="medium")
-        with c_left:
-            st.subheader("🌿 Clean Field Images (Without Predictions)")
-            if raw_grid_path.exists():
-                st.image(str(raw_grid_path), caption="20 Raw Unlabelled Images", use_container_width=True)
-            else:
-                st.warning("Raw collage grid not found.")
-        with c_right:
-            st.subheader("🏷️ AI Diagnosed Predictions (With Banners)")
-            if pred_grid_path.exists():
-                st.image(str(pred_grid_path), caption="20 AI Classified & Annotated Images", use_container_width=True)
-            else:
-                st.warning("Predicted collage grid not found.")
-
-    elif view_mode == "🌿 Raw Images Only (Without Predictions)":
-        st.subheader("🌿 Clean Field Images (Without Predictions / Ground Truth)")
-        if raw_grid_path.exists():
-            st.image(str(raw_grid_path), caption="4x5 Collage: 20 Raw Test Images", use_container_width=True)
-
-    elif view_mode == "🏷️ Diagnosed Images Only (With Overlays)":
-        st.subheader("🏷️ AI Diagnosed Predictions (With Overlays & Confidence)")
-        if pred_grid_path.exists():
-            st.image(str(pred_grid_path), caption="4x5 Collage: 20 AI Classified Images", use_container_width=True)
-
-    elif view_mode == "🔍 Single-Sample Comparative Inspector":
-        if csv_path.exists():
-            df = pd.read_csv(csv_path)
-            sample_idx = st.selectbox(
-                "Choose a sample to inspect:",
-                range(len(df)),
-                format_func=lambda i: f"Sample #{df.iloc[i]['ID']}: {df.iloc[i]['Image Filename']} — {df.iloc[i]['Predicted Class']} ({df.iloc[i]['Confidence (%)']}%)"
-            )
-            row = df.iloc[sample_idx]
-            raw_img_file = pred_dir / str(row["Raw Image (Without Predictions)"])
-            pred_img_file = pred_dir / str(row["Annotated Image (With Predictions)"])
-
-            col1, col2, col3 = st.columns([1.2, 1.2, 1.6], gap="medium")
-            with col1:
-                st.markdown("**🌿 Raw Field Image (Without Predictions)**")
-                if raw_img_file.exists():
-                    st.image(str(raw_img_file), caption=str(row["Raw Image (Without Predictions)"]), use_container_width=True)
-            with col2:
-                st.markdown("**🏷️ Diagnosed Image (With AI Prediction)**")
-                if pred_img_file.exists():
-                    st.image(str(pred_img_file), caption=str(row["Annotated Image (With Predictions)"]), use_container_width=True)
-            with col3:
-                st.markdown("### 📋 Diagnostic Assessment")
-                st.write(f"**Image Filename:** `{row['Image Filename']}`")
-                st.write(f"**Predicted Pathology:** `{row['Predicted Class']}`")
-                st.write(f"**Pathogen / Vector:** {row['Pathogen / Vector Type']}")
-                st.write(f"**Confidence:** **{row['Confidence (%)']}%**")
-                st.write(f"**Severity Status:** `{row['Priority Status']}`")
-                
-                # Knowledge base advisory lookup
-                dis_key = str(row["Predicted Class"]).lower().replace(" ", "_")
-                if dis_key in DISEASE_KNOWLEDGE_BASE:
-                    kb = DISEASE_KNOWLEDGE_BASE[dis_key]
-                    st.info(f"**Advisory:** {kb['organic_cultural_management'][0]}")
-
-    st.divider()
-    st.subheader("📋 20-Sample Batch Predictions Log")
-    if csv_path.exists():
-        df_log = pd.read_csv(csv_path)
-        st.dataframe(df_log, use_container_width=True, hide_index=True)
 

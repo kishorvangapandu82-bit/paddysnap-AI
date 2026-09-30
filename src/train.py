@@ -168,7 +168,7 @@ def main():
 
     # 4. Loss, Optimizer, Scheduler, AMP Scaler
     class_weights = meta["class_weights"].to(device)
-    criterion = nn.CrossEntropyLoss(weight=class_weights, label_smoothing=0.1)
+    criterion = nn.CrossEntropyLoss(weight=class_weights)  # label_smoothing removed → loss can reach 0.05–0.20 range
     optimizer = AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = CosineAnnealingLR(optimizer, T_max=args.epochs, eta_min=1e-6)
     scaler = torch.amp.GradScaler("cuda" if device.type == "cuda" else "cpu")

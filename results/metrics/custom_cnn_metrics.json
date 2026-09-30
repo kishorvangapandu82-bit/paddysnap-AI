@@ -1,67 +1,67 @@
 {
   "model_name": "custom_cnn",
-  "test_accuracy": 93.0858,
-  "macro_f1": 92.7355,
-  "weighted_f1": 93.1073,
+  "test_accuracy": 90.8451,
+  "macro_f1": 90.3803,
+  "weighted_f1": 90.8946,
   "per_class": {
     "bacterial_leaf_blight": {
-      "precision": 81.7073,
-      "recall": 93.0556,
-      "f1_score": 87.013,
+      "precision": 79.2683,
+      "recall": 90.2778,
+      "f1_score": 84.4156,
       "support": 72
     },
     "bacterial_leaf_streak": {
-      "precision": 91.9355,
-      "recall": 100.0,
-      "f1_score": 95.7983,
+      "precision": 90.3226,
+      "recall": 98.2456,
+      "f1_score": 94.1176,
       "support": 57
     },
     "bacterial_panicle_blight": {
-      "precision": 90.7407,
+      "precision": 89.0909,
       "recall": 98.0,
-      "f1_score": 94.2308,
+      "f1_score": 93.3333,
       "support": 50
     },
     "blast": {
-      "precision": 91.2214,
-      "recall": 91.5709,
-      "f1_score": 91.3958,
+      "precision": 92.5926,
+      "recall": 86.2069,
+      "f1_score": 89.2857,
       "support": 261
     },
     "brown_spot": {
-      "precision": 91.8919,
-      "recall": 93.7931,
-      "f1_score": 92.8328,
+      "precision": 90.9091,
+      "recall": 89.6552,
+      "f1_score": 90.2778,
       "support": 145
     },
     "dead_heart": {
-      "precision": 99.5283,
-      "recall": 97.235,
-      "f1_score": 98.3683,
+      "precision": 100.0,
+      "recall": 96.7742,
+      "f1_score": 98.3607,
       "support": 217
     },
     "downy_mildew": {
-      "precision": 87.6289,
-      "recall": 91.3978,
-      "f1_score": 89.4737,
+      "precision": 78.0952,
+      "recall": 88.172,
+      "f1_score": 82.8283,
       "support": 93
     },
     "hispa": {
-      "precision": 93.8596,
-      "recall": 89.5397,
-      "f1_score": 91.6488,
+      "precision": 87.7119,
+      "recall": 86.6109,
+      "f1_score": 87.1579,
       "support": 239
     },
     "normal": {
-      "precision": 95.7854,
-      "recall": 94.3396,
-      "f1_score": 95.057,
+      "precision": 94.6565,
+      "recall": 93.5849,
+      "f1_score": 94.1176,
       "support": 265
     },
     "tungro": {
-      "precision": 93.5897,
-      "recall": 89.5706,
-      "f1_score": 91.5361,
+      "precision": 89.6341,
+      "recall": 90.184,
+      "f1_score": 89.9083,
       "support": 163
     }
   }

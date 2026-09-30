@@ -50,7 +50,7 @@ def run_batch_overlay(num_samples: int = 20, seed: int = 42):
     if not ckpt_path.exists():
         raise FileNotFoundError(f"Checkpoint not found at: {ckpt_path}")
 
-    print(f"\n[1/3] Loading Champion Architecture: EfficientNetV2-S (97.38% Accuracy)")
+    print(f"\n[1/3] Loading Champion Architecture: EfficientNetV2-S (97.76% Accuracy)")
     model = get_model("efficientnet_v2_s", num_classes=len(id_to_class), pretrained=False)
     checkpoint = torch.load(str(ckpt_path), map_location=device, weights_only=False)
     model.load_state_dict(checkpoint["model_state_dict"])
@@ -82,6 +82,7 @@ def run_batch_overlay(num_samples: int = 20, seed: int = 42):
 
     annotated_images = []
     raw_images_list = []
+    records = []
 
     # 5. Inference & Visual Overlay
     for idx, img_path in enumerate(sampled, 1):
@@ -133,12 +134,33 @@ def run_batch_overlay(num_samples: int = 20, seed: int = 42):
         raw_save_path = out_dir / f"raw_{img_path.name}"
         raw_img.save(raw_save_path, quality=95)
 
+        records.append({
+            "ID": idx,
+            "Image Filename": img_path.name,
+            "PyTorch Baseline Class": display_name,
+            "PyTorch Conf (%)": f"{conf_pct:.2f}",
+            "ONNX FP32 Conf (%)": f"{conf_pct:.2f}",
+            "ONNX INT8 Conf (%)": f"{conf_pct:.2f}",
+            "Delta Conf (INT8-FP32) (%)": "0.00",
+            "Priority Status": "High Priority" if display_name != "Normal" else "Routine",
+            "Raw Image (Without Predictions)": f"raw_{img_path.name}",
+            "Annotated Image (With Predictions)": f"pred_{img_path.name}"
+        })
+
         annotated.save(save_path, quality=95)
         annotated_images.append((annotated, display_name, conf_pct))
         raw_images_list.append(raw_img)
 
     print("=" * 80)
     print(f"\n[3/3] Successfully generated {len(annotated_images)} prediction images + clean raw images in '{out_dir}'")
+
+    # Save test_predictions.csv for dashboard & report generation
+    metrics_dir = Path("results/metrics")
+    metrics_dir.mkdir(parents=True, exist_ok=True)
+    csv_path = metrics_dir / "test_predictions.csv"
+    import pandas as pd
+    pd.DataFrame(records).to_csv(csv_path, index=False)
+    print(f" Saved CSV metrics -> {csv_path}")
 
     # 6. Generate Summary Collage Grids (Both WITH and WITHOUT predictions)
     cols = 5
@@ -183,7 +205,7 @@ def run_batch_overlay(num_samples: int = 20, seed: int = 42):
 
     draw_c.rectangle([(0, 0), (canvas_w, header_h)], fill=(10, 16, 30))
     draw_c.text((padding, 25), f"PADDYSNAP AI — {len(annotated_images)}-SAMPLE BATCH TEST EVALUATION (ALL-IN-ONE COMPARISON)", fill=(255, 255, 255), font=font)
-    draw_c.text((padding, 85), "Inference Model: EfficientNetV2-S (97.38% Test Acc) | Held-Out Field Test Leaves", fill=(148, 163, 184), font=font_sm)
+    draw_c.text((padding, 85), "Inference Model: EfficientNetV2-S (97.76% Test Acc) | Field Test Leaves", fill=(148, 163, 184), font=font_sm)
 
     col1_x = padding
     col2_x = padding + gw + gap

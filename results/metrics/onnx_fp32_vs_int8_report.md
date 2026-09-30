@@ -9,17 +9,7 @@
 
 * **Class Agreement Rate:** **100.0% (20 / 20 samples perfectly identical)**
 * **Mean Absolute Confidence Drift:** **1.44%** (negligible quantization noise)
-* **Mean Inference Latency:** FP32 = **65.9 ms** | INT8 = **128.7 ms** (CPU single-thread)
-
----
-
-## 🖼️ Visual Benchmark Infographic
-
-![ONNX FP32 vs INT8 Visual Benchmark](../graphs/onnx_fp32_vs_int8_visual_comparison.png)
-
-*Direct Link to Image:* [`results/graphs/onnx_fp32_vs_int8_visual_comparison.png`](file:///c:/Users/SUMITRANAND%20SHARMA/OneDrive/Desktop/embeded_system/paddy-guard-ai/results/graphs/onnx_fp32_vs_int8_visual_comparison.png)
-
----
+* **Mean Inference Latency:** FP32 = **49.6 ms** | INT8 = **138.1 ms** (CPU single-thread)
 
 ## 📊 Sample-by-Sample Diagnostic Comparison Log
 
@@ -41,7 +31,7 @@
 | 14 | `200357.jpg` | Bacterial Leaf Streak | **Bacterial Leaf Streak** | 96.4% | **Bacterial Leaf Streak** | 96.38% | -0.02% | 🟢 MATCH |
 | 15 | `202419.jpg` | Hispa | **Hispa** | 81.0% | **Hispa** | 79.04% | -1.97% | 🟢 MATCH |
 | 16 | `201729.jpg` | Tungro | **Tungro** | 87.81% | **Tungro** | 87.59% | -0.23% | 🟢 MATCH |
-| 17 | `200131.jpg` | Brown Spot | **Brown Spot** | 86.87% | **Brown Spot** | 80.65% | -6.22% | 🟢 MATCH |
+| 17 | `200131.jpg` | Bacterial Leaf Streak | **Brown Spot** | 86.87% | **Brown Spot** | 80.65% | -6.22% | 🟢 MATCH |
 | 18 | `200123.jpg` | Dead Heart | **Dead Heart** | 85.0% | **Dead Heart** | 81.33% | -3.67% | 🟢 MATCH |
 | 19 | `200384.jpg` | Bacterial Leaf Blight | **Bacterial Leaf Blight** | 95.48% | **Bacterial Leaf Blight** | 94.48% | -0.99% | 🟢 MATCH |
 | 20 | `200896.jpg` | Normal | **Normal** | 80.02% | **Normal** | 79.04% | -0.98% | 🟢 MATCH |

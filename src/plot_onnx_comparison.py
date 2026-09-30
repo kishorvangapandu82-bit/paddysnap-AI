@@ -47,7 +47,7 @@ ax_kpi.axis('off')
 # Main Title & Subtitle
 ax_kpi.text(0.0, 0.88, "PADDYSNAP AI -- ONNX FP32 vs INT8 QUANTIZATION BENCHMARK", 
             fontsize=22, fontweight='bold', color='#ffffff', va='top')
-ax_kpi.text(0.0, 0.62, "Direct Diagnostic Parity & Confidence Verification on 20 Held-Out Field Leaves | Model: EfficientNetV2-S (97.38% Acc)", 
+ax_kpi.text(0.0, 0.62, "Direct Diagnostic Parity & Confidence Verification on 20 Field Leaves | Model: EfficientNetV2-S (97.76% Acc)", 
             fontsize=12, color=C_MUTED, va='top')
 
 # 4 KPI Stat Cards
